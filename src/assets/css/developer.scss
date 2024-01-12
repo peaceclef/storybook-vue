@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/************************************
+* common.scss 내용 변경이 어려운 부분에 대한 개발자 재정의
+************************************/
+/*****************************************************
+* 이벤트 정보감시 현황 위쪽 서클 변경 요청 - (20220616 @dwkim)
+* CRITICAL : #AD2414 / MAJOR : #53B3E3 / MINOR : #C6CDD4
+* Critical, Major, Minor → 도형테두리, 대소문자 및 텍스트 색상 변경 
+*****************************************************/
+.circle__short__info {
+
+  &.ty2 {
+    > div {
+
+      &.type_02 {
+        span {
+          color: #AD2414 !important;
+        }
+      }
+
+      &.type_03 {
+        span {
+          color: #53B3E3 !important;
+        }
+      }
+
+      &.type_04 {
+        span {
+          color: #C6CDD4 !important;
+        }
+      }
+    }
+  }
+
+  div {
+    &.type_02 {
+      border-color: #AD2414;
+
+      span {
+        color: #AD2414 !important;
+      }
+    }
+
+    &.type_03 {
+      border-color: #53B3E3;
+
+      span {
+        color: #53B3E3 !important;
+      }
+    }
+
+    &.type_04 {
+      border-color: #C6CDD4;
+
+      span {
+        color: #C6CDD4 !important;
+      }
+    }
+  }
+}
+
+/** 등급CSS **/
+.CRITICAL {
+  color: #AD2414 !important;
+
+  * {
+    color: #AD2414 !important;
+  }
+}
+
+.MAJOR {
+  color: #53B3E3 !important;
+}
+
+.MINOR {
+  color: #C6CDD4 !important;
+}

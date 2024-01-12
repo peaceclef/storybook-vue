@@ -1,0 +1,277 @@
+/**** scss mixin ***************************************************************************************************************************/
+
+/**
+버튼 extend 타입 : 뷰티파이 사용으로 하위 항목 사용하지 않음
+**/
+// %btn {
+//   width: 100px;
+//   height: 80px;
+// }
+
+// .btn_success {
+//   @extend %btn;
+//   color: green;
+// }
+
+// .btn_danger {
+//   @extend %btn;
+//   color: red;
+// }
+
+// .btn_warning {
+//   @extend %btn;
+//   color: orange;
+// }
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius !important;
+  -moz-border-radius: $radius !important;
+  -ms-border-radius: $radius !important;
+  border-radius: $radius !important;
+}
+
+
+@mixin box-shadow($top, $left, $blur, $spd, $color) {
+  -webkit-box-shadow: $top $left $blur $spd $color;
+  -moz-box-shadow: $top $left $blur $spd $color;
+  box-shadow: $top $left $blur $spd $color;
+}
+
+@mixin box-shadow-unset($no) {
+  -webkit-box-shadow: $no !important;
+  -moz-box-shadow: $no !important;
+  box-shadow: $no !important;
+}
+
+
+/**
+예제
+.exmp { @include border-radius(10px); }
+.exmp{ @include box-shadow(10px 10px 5px 0px rgba(0,0,0,0,7.5) );}
+**/
+
+
+// 미디어 쿼리
+// scss특성상 분리 하여 import할 경우 최종 빌드 후 정상적으로 반영이 되지 않는 문제가 있음
+// 하위 믹스인을 이용하여 대상에 직접 적용
+// 그리드 시스템을 적용 한 디자인 필수
+// 사용법 : @include bp-devices1580{} 하여 필요에 반응 해상도별 처리
+
+
+// 미디어쿼리 디바이스 별 처리 작업
+// $devices: ( mobile: 320px, tablet: 768px, desktop: 1280px);
+// @mixin mq($device) {
+//   @if map-has-key($devices, $device) {
+//     $device-width: map-get($devices, $device);
+//     @media screen and (max-width: #{$device-width}) {
+//       @content;
+//     }
+//   } @else {
+//     @warn 'Invalid breakpoint: #{$device}.';
+//   }
+// }
+
+
+// 이서비스 특성상 상위 타입별 분리를 하지 않고 각각의 디바이스별 브레이크 포인트로 처리하였음
+// 브레이크 포인트가 다수 발생하여 상위 믹스인을 사용하여 분기 명칭 처리하기에 하위 믹스인용하여
+// 분리하여 개별적용
+
+@mixin bp-devices1580 {
+  @media(max-width: 1580px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1420 {
+  @media(max-width: 1420px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1400 {
+  @media(max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1280 {
+  @media(max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1265 {
+  @media(max-width: 1265px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1250 {
+  @media(max-width: 1250px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1218 {
+  @media(max-width: 1218px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1200 {
+  @media(max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1199 {
+  @media(max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1124 {
+  @media(max-width: 1124px) {
+    @content;
+  }
+}
+
+@mixin bp-devices1060 {
+  @media(max-width: 1060px) {
+    @content;
+  }
+}
+
+
+@mixin bp-devices1024 {
+  @media(max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin bp-devices960 {
+  @media(max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin bp-devices925 {
+  @media(max-width: 925px) {
+    @content;
+  }
+}
+
+
+@mixin bp-devices890 {
+  @media(max-width: 890px) {
+    @content;
+  }
+}
+
+@mixin bp-devices760 {
+  @media(max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin bp-devices665 {
+  @media(max-width: 665px) {
+    @content;
+  }
+}
+
+
+@mixin bp-devices590 {
+  @media(max-width: 590px) {
+    @content;
+  }
+}
+
+@mixin bp-devices520 {
+  @media(max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin bp-devices500 {
+  @media(max-width: 500px) {
+    @content;
+  }
+}
+
+
+@mixin bp-devices475 {
+  @media(max-width: 475px) {
+    @content;
+  }
+}
+
+
+@mixin bp-devices445 {
+  @media(max-width: 445px) {
+    @content;
+  }
+}
+
+@mixin bp-devices400 {
+  @media(max-width: 400px) {
+    @content;
+  }
+}
+
+
+// 멀티라인 말줄임 표시
+// $line-cnt : 라인 수
+// $line-height : line-height값
+// 사용법 : @include ellipsis(3, 1.6em);
+@mixin ellipsis($line-cnt, $line-height) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line-cnt; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  line-height: $line-height;
+  height: $line-height * $line-cnt; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
+
+// 글자수 자르기  인자를 넘기지 않을 경우 한줄 자르기
+@mixin ellipsisTy2($line: 1) {
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+
+// 클리어 픽스 처리
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+// 백그라운드  스프라이트 작업
+// 리팩토링 필요
+@mixin background($url, $x, $y, $width, $height) {
+  background-image: url($url);
+  background-position: ($x) ($y);
+  background-size: $width $height;
+}
+
+
+@media(max-width: 960px) {
+  .posa-r {
+    position: static !important; // 확인안됨 홍팀 작업분
+  }
+}
